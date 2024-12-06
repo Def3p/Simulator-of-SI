@@ -2,20 +2,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 
-# population
+# Input переменные
+max_population = int(input("Кол-во людей в городе: "))
+
+# Общество
 population_list = []
 get_mixing_list = []
-current_population = int(input("Кол-во людей в городе: "))
 
-# error
-cash_error = 1
+# Выгода торговли
+trading_error = 1
 
-def InitPopulation():
-    while(len(population_list) < current_population):
-        population_list.append(100)
+def InitPopulation(list):
+    while(len(list) < max_population):
+        list.append(100)
+    return list
 
-def ChanceOfError(): 
-    return random.randrange(101)
+def ChanceOfError(percent): 
+    return random.randrange(percent) / 100
 
 # def ShuffleList():
 #     shuffle_list = random.shuffle(population_list)
@@ -26,7 +29,7 @@ def ChanceOfError():
     
 def MixingPopulation():
     get_list = []
-    for i in range(1, int(current_population / 2) + 1):
+    for i in range(int(max_population * ChanceOfError(30))):
         get_list.append(i)
     random.shuffle(get_list)
     return get_list
@@ -36,16 +39,42 @@ def MixingPopulation():
     #     while(len(get_mixing_list) == get_mix): 
     #         get_mix = random.randrange(0, current_population - 1)
     #     get_mixing_list.append(get_mix)
-            
 
-# Init population
-InitPopulation()
-
+print(MixingPopulation())
+print(int(max_population * ChanceOfError(30)))
 get_mixing_list = MixingPopulation()
 
-print(get_mixing_list)
-print(population_list)
+# Создание общества
+population_list = InitPopulation(population_list)
 
-# fig, ax = plt.subplots()             # Create a figure containing a single Axes.
-# ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
-# plt.show()                           # Show the figure.
+# Графики
+
+plt.style.use('ggplot') # Стиль
+
+fig, axes = plt.subplots(2, 2) # Разметка окна
+
+x1 = range(200)
+y1 = range(200)
+
+# График 1
+axes[0, 0].set_title("День 1", fontsize = 15)
+
+axes[0, 0].set_xlim(0, 200)
+axes[0, 0].set_ylim(0, 5000)
+
+axes[0, 0].set_xticks(np.arange(0, 200, 50))
+axes[0, 0].set_yticks(np.arange(0, 5000, 1000))
+
+axes[0, 0].grid()
+
+axes[0, 0].bar(x1, y1, color = "black")
+
+# График 2
+
+
+# График 3
+
+
+# График 4
+
+plt.show() # Открыть окно
