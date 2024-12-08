@@ -107,85 +107,85 @@ axes[0, 1].grid()
 
 axes[0, 1].bar(x1, y1, color = "black", width = 1.0)
 
-# for i in range(900):
-#     get_mixing_list = MixingPopulation()
-#     Trading()
+for i in range(900):
+    get_mixing_list = MixingPopulation()
+    Trading()
 
-# x1 = range(300)
-# y1 = Calculation(300)
+x1 = range(300)
+y1 = Calculation(300)
 
-# # # График 3
-# axes[0, 2].set_title("День 1000", fontsize = 15)
+# # График 3
+axes[0, 2].set_title("День 1000", fontsize = 15)
 
-# axes[0, 2].set_xlim(0, 300)
-# axes[0, 2].set_ylim(0, 200)
+axes[0, 2].set_xlim(0, 300)
+axes[0, 2].set_ylim(0, 200)
 
-# axes[0, 2].set_xticks(np.arange(0, 300, 50))
-# axes[0, 2].set_yticks(np.arange(0, 200, 50))
+axes[0, 2].set_xticks(np.arange(0, 300, 50))
+axes[0, 2].set_yticks(np.arange(0, 200, 50))
 
-# axes[0, 2].grid()
+axes[0, 2].grid()
 
-# axes[0, 2].bar(x1, y1, color = "black")
+axes[0, 2].bar(x1, y1, color = "black")
 
-# for i in range(1000):
-#     get_mixing_list = MixingPopulation()
-#     Trading()
+for i in range(1000):
+    get_mixing_list = MixingPopulation()
+    Trading()
 
-# x1 = range(300)
-# y1 = Calculation(300)
+x1 = range(300)
+y1 = Calculation(300)
 
-# # График 4
-# axes[1, 0].set_title("День 2000", fontsize = 15)
+# График 4
+axes[1, 0].set_title("День 2000", fontsize = 15)
 
-# axes[1, 0].set_xlim(0, 300)
-# axes[1, 0].set_ylim(0, 200)
+axes[1, 0].set_xlim(0, 300)
+axes[1, 0].set_ylim(0, 200)
 
-# axes[1, 0].set_xticks(np.arange(0, 300, 50))
-# axes[1, 0].set_yticks(np.arange(0, 200, 50))
+axes[1, 0].set_xticks(np.arange(0, 300, 50))
+axes[1, 0].set_yticks(np.arange(0, 200, 50))
 
-# axes[1, 0].grid()
+axes[1, 0].grid()
 
-# axes[1, 0].bar(x1, y1, color = "black")
+axes[1, 0].bar(x1, y1, color = "black")
 
-# for i in range(1000):
-#     get_mixing_list = MixingPopulation()
-#     Trading()
+for i in range(1000):
+    get_mixing_list = MixingPopulation()
+    Trading()
 
-# x1 = range(400)
-# y1 = Calculation(400)
+x1 = range(400)
+y1 = Calculation(400)
 
-# # График 5
-# axes[1, 1].set_title("День 3000", fontsize = 15)
+# График 5
+axes[1, 1].set_title("День 3000", fontsize = 15)
 
-# axes[1, 1].set_xlim(0, 400)
-# axes[1, 1].set_ylim(0, 125)
+axes[1, 1].set_xlim(0, 400)
+axes[1, 1].set_ylim(0, 125)
 
-# axes[1, 1].set_xticks(np.arange(0, 400, 50))
-# axes[1, 1].set_yticks(np.arange(0, 125, 25))
+axes[1, 1].set_xticks(np.arange(0, 400, 50))
+axes[1, 1].set_yticks(np.arange(0, 125, 25))
 
-# axes[1, 1].grid()
+axes[1, 1].grid()
 
-# axes[1, 1].bar(x1, y1, color = "black")
+axes[1, 1].bar(x1, y1, color = "black")
 
-# for i in range(17000):
-#     get_mixing_list = MixingPopulation()
-#     Trading()
+for i in range(17000):
+    get_mixing_list = MixingPopulation()
+    Trading()
 
-# x1 = range(500)
-# y1 = Calculation(500)
+x1 = range(500)
+y1 = Calculation(500)
 
-# # График 6
-# axes[1, 2].set_title("День 20000", fontsize = 15)
+# График 6
+axes[1, 2].set_title("День 20000", fontsize = 15)
 
-# axes[1, 2].set_xlim(0, 500)
-# axes[1, 2].set_ylim(0, 100)
+axes[1, 2].set_xlim(0, 500)
+axes[1, 2].set_ylim(0, 100)
 
-# axes[1, 2].set_xticks(np.arange(0, 500, 50))
-# axes[1, 2].set_yticks(np.arange(0, 100, 25))
+axes[1, 2].set_xticks(np.arange(0, 500, 50))
+axes[1, 2].set_yticks(np.arange(0, 100, 25))
 
-# axes[1, 2].grid()
+axes[1, 2].grid()
 
-# axes[1, 2].bar(x1, y1, color = "black")
+axes[1, 2].bar(x1, y1, color = "black")
 
 end = time.time()
 print(f"Затраченное время: {end - start}")
