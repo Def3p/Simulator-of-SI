@@ -85,7 +85,7 @@ axes[0, 0].set_yticks(np.arange(0, 5000, 1000))
 
 axes[0, 0].grid()
 
-axes[0, 0].bar(x1, y1, color = "black")
+axes[0, 0].bar(x1, y1, color = "black", width = 1.0)
 
 for i in range(99):
     get_mixing_list = MixingPopulation()
@@ -125,7 +125,7 @@ axes[0, 2].set_yticks(np.arange(0, 200, 50))
 
 axes[0, 2].grid()
 
-axes[0, 2].bar(x1, y1, color = "black")
+axes[0, 2].bar(x1, y1, color = "black", width = 1.0)
 
 for i in range(1000):
     get_mixing_list = MixingPopulation()
@@ -145,7 +145,7 @@ axes[1, 0].set_yticks(np.arange(0, 200, 50))
 
 axes[1, 0].grid()
 
-axes[1, 0].bar(x1, y1, color = "black")
+axes[1, 0].bar(x1, y1, color = "black", width = 1.0)
 
 for i in range(1000):
     get_mixing_list = MixingPopulation()
@@ -165,7 +165,7 @@ axes[1, 1].set_yticks(np.arange(0, 125, 25))
 
 axes[1, 1].grid()
 
-axes[1, 1].bar(x1, y1, color = "black")
+axes[1, 1].bar(x1, y1, color = "black", width = 1.0)
 
 for i in range(17000):
     get_mixing_list = MixingPopulation()
@@ -185,7 +185,7 @@ axes[1, 2].set_yticks(np.arange(0, 100, 25))
 
 axes[1, 2].grid()
 
-axes[1, 2].bar(x1, y1, color = "black")
+axes[1, 2].bar(x1, y1, color = "black", width = 1.0)
 
 end = time.time()
 print(f"Затраченное время: {end - start}")
