@@ -4,7 +4,7 @@
 
 # Для работы проекта..
 ```
-    pip install matplotlib
+    pip install matplotlib, customtkinter
 ```
 
 # Описание

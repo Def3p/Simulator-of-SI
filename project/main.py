@@ -3,9 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 import time
+import math
 
 start = time.time()
 
+coffers = 0
 max_population = 10000
 trading_error = 1
 calculation_list = []
@@ -38,16 +40,23 @@ def MixingPopulation():
     return get_list
 
 
-def Trading():
+def Trading(coffer):
+    # if coffer >= max_population:
+    #     for i in population_list:
+    #         i += 1
+    #     coffer -= max_population
     for people in get_mixing_list: # все трейды
-        cash_in_trade = 1 # сумма
+        cash_in_trade = 3
+        # cash_in_trade = round(population_list[people[0]] * RandPercent(51)) # сумма
 
-        if random.randrange(100) == 1: # ошибка терминала
-            if random.randrange(2) == 1: cash_in_trade -= 1
-            else: cash_in_trade += 1
+        # if random.randrange(100) == 1: # ошибка терминала
+        #     if random.randrange(2) == 1: cash_in_trade -= 1
+        #     else: cash_in_trade += 1
 
         if population_list[people[0]] > 0:
             population_list[people[0]] -= cash_in_trade # - к покупателю
+            # cash_in_trade -= 1
+            # coffer += 1
             population_list[people[1]] += cash_in_trade # + к продавцу
 
 
@@ -58,56 +67,56 @@ def Calculation(scale):
             calculation_list[i] += 1
     return calculation_list
 
-CTk.set_appearance_mode("System")
-CTk.set_default_color_theme("blue")
+# CTk.set_appearance_mode("System")
+# CTk.set_default_color_theme("blue")
 
-class App(CTk.CTk):
-    def __init__(self):
-        super().__init__()
+# class App(CTk.CTk):
+#     def __init__(self):
+#         super().__init__()
 
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+# if __name__ == "__main__":
+#     app = App()
+#     app.mainloop()
 
-# population_list = InitPopulation()
-# print(f"Популяция: {max_population}")
+population_list = InitPopulation()
+print(f"Популяция: {max_population}")
 
 
-# get_mixing_list = MixingPopulation()
-# Trading()
+get_mixing_list = MixingPopulation()
+Trading(coffers)
 
 # # Графики
 
-plt.style.use('ggplot')# Стиль
+plt.style.use('ggplot') # Стиль
 
 
 fig, axes = plt.subplots(2, 3) # Разметка окна
 
-# x1 = range(5000)
-# y1 = Calculation(5000)
+x1 = range(5000)
+y1 = Calculation(5000)
 
-# # График 1
-# axes[0, 0].set_title("День 1", fontsize = 15)
+# График 1
+axes[0, 0].set_title("День 1", fontsize = 15)
 
-# axes[0, 0].set_xlim(0, 200)
-# axes[0, 0].set_ylim(0, 5000)
+axes[0, 0].set_xlim(0, 200)
+axes[0, 0].set_ylim(0, 5000)
 
-# axes[0, 0].set_xticks(np.arange(0, 200, 50))
-# axes[0, 0].set_yticks(np.arange(0, 5000, 1000))
+axes[0, 0].set_xticks(np.arange(0, 200, 50))
+axes[0, 0].set_yticks(np.arange(0, 5000, 1000))
 
-# axes[0, 0].grid()
+axes[0, 0].grid()
 
-# axes[0, 0].bar(x1, y1, color = "black", width = 1.0)
+axes[0, 0].bar(x1, y1, color = "black", width = 1.0)
 
-# for i in range(99):
-#     get_mixing_list = MixingPopulation()
-#     Trading()
+for i in range(99):
+    get_mixing_list = MixingPopulation()
+    Trading(coffers)
 
-# x1 = range(700)
-# y1 = Calculation(700)
+x1 = range(700)
+y1 = Calculation(700)
 
-# # График 2
-# axes[0, 1].set_title("День 100", fontsize = 15)
+# График 2
+axes[0, 1].set_title("День 100", fontsize = 15)
 
 # axes[0, 1].set_xlim(0, 200)
 # axes[0, 1].set_ylim(0, 700)
@@ -115,19 +124,19 @@ fig, axes = plt.subplots(2, 3) # Разметка окна
 # axes[0, 1].set_xticks(np.arange(0, 200, 50))
 # axes[0, 1].set_yticks(np.arange(0, 700, 100))
 
-# axes[0, 1].grid()
+axes[0, 1].grid()
 
-# axes[0, 1].bar(x1, y1, color = "black", width = 1.0)
+axes[0, 1].bar(x1, y1, color = "black", width = 1.0)
 
-# for i in range(900):
-#     get_mixing_list = MixingPopulation()
-#     Trading()
+for i in range(900):
+    get_mixing_list = MixingPopulation()
+    Trading(coffers)
 
-# x1 = range(300)
-# y1 = Calculation(300)
+x1 = range(300)
+y1 = Calculation(300)
 
-# # # График 3
-# axes[0, 2].set_title("День 1000", fontsize = 15)
+# # График 3
+axes[0, 2].set_title("День 1000", fontsize = 15)
 
 # axes[0, 2].set_xlim(0, 300)
 # axes[0, 2].set_ylim(0, 200)
@@ -135,13 +144,13 @@ fig, axes = plt.subplots(2, 3) # Разметка окна
 # axes[0, 2].set_xticks(np.arange(0, 300, 50))
 # axes[0, 2].set_yticks(np.arange(0, 200, 50))
 
-# axes[0, 2].grid()
+axes[0, 2].grid()
 
-# axes[0, 2].bar(x1, y1, color = "black", width = 1.0)
+axes[0, 2].bar(x1, y1, color = "black", width = 1.0)
 
 # for i in range(1000):
 #     get_mixing_list = MixingPopulation()
-#     Trading()
+#     Trading(coffers)
 
 # x1 = range(300)
 # y1 = Calculation(300)
@@ -149,11 +158,11 @@ fig, axes = plt.subplots(2, 3) # Разметка окна
 # # График 4
 # axes[1, 0].set_title("День 2000", fontsize = 15)
 
-# axes[1, 0].set_xlim(0, 300)
-# axes[1, 0].set_ylim(0, 200)
+# # axes[1, 0].set_xlim(0, 300)
+# # axes[1, 0].set_ylim(0, 200)
 
-# axes[1, 0].set_xticks(np.arange(0, 300, 50))
-# axes[1, 0].set_yticks(np.arange(0, 200, 50))
+# # axes[1, 0].set_xticks(np.arange(0, 300, 50))
+# # axes[1, 0].set_yticks(np.arange(0, 200, 50))
 
 # axes[1, 0].grid()
 
@@ -169,11 +178,11 @@ fig, axes = plt.subplots(2, 3) # Разметка окна
 # # График 5
 # axes[1, 1].set_title("День 3000", fontsize = 15)
 
-# axes[1, 1].set_xlim(0, 400)
-# axes[1, 1].set_ylim(0, 125)
+# # axes[1, 1].set_xlim(0, 400)
+# # axes[1, 1].set_ylim(0, 125)
 
-# axes[1, 1].set_xticks(np.arange(0, 400, 50))
-# axes[1, 1].set_yticks(np.arange(0, 125, 25))
+# # axes[1, 1].set_xticks(np.arange(0, 400, 50))
+# # axes[1, 1].set_yticks(np.arange(0, 125, 25))
 
 # axes[1, 1].grid()
 
@@ -189,16 +198,16 @@ fig, axes = plt.subplots(2, 3) # Разметка окна
 # # График 6
 # axes[1, 2].set_title("День 20000", fontsize = 15)
 
-# axes[1, 2].set_xlim(0, 500)
-# axes[1, 2].set_ylim(0, 100)
+# # axes[1, 2].set_xlim(0, 500)
+# # axes[1, 2].set_ylim(0, 100)
 
-# axes[1, 2].set_xticks(np.arange(0, 500, 50))
-# axes[1, 2].set_yticks(np.arange(0, 100, 25))
+# # axes[1, 2].set_xticks(np.arange(0, 500, 50))
+# # axes[1, 2].set_yticks(np.arange(0, 100, 25))
 
 # axes[1, 2].grid()
 
 # axes[1, 2].bar(x1, y1, color = "black", width = 1.0)
 
-# end = time.time()
-# print(f"Затраченное время: {end - start} секунд")
-# plt.show() # Открыть окно
+end = time.time()
+print(f"Затраченное время: {end - start} секунд")
+plt.show() # Открыть окно
